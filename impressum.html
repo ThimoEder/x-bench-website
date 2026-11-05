@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Imprint · X Bench</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <style>
+    :root { color-scheme: dark; --bg: #0a0a0a; --line: rgba(255, 255, 255, .07); --text: #f4f4f5; --muted: #a1a1aa; --faint: #6b6b75; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    header { display: flex; align-items: center; justify-content: space-between; max-width: 760px; margin: 0 auto; padding: 22px 24px; }
+    header img { height: 22px; display: block; }
+    header a { color: var(--muted); font-size: 14px; text-decoration: none; }
+    header a:hover, header a:focus-visible { color: var(--text); }
+    main { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+    h1 { margin: 0 0 8px; font-size: clamp(36px, 6vw, 52px); letter-spacing: -.04em; line-height: 1.05; }
+    h2 { margin: 40px 0 8px; font-size: 18px; letter-spacing: -.01em; }
+    main p { margin: 0 0 8px; color: var(--muted); }
+    main p a { color: var(--text); }
+    footer { border-top: 1px solid var(--line); padding: 36px 24px 48px; color: var(--faint); font-size: 13.5px; }
+    .f-in { max-width: 712px; margin: 0 auto; display: grid; gap: 18px; }
+    .f-top { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .f-top img { height: 18px; opacity: .8; }
+    .f-top nav { margin-left: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; }
+    .f-top a { color: var(--muted); text-decoration: none; }
+    .f-top a:hover { color: var(--text); }
+    .f-note { margin: 0; max-width: 760px; line-height: 1.6; }
+    @media (max-width: 520px) { .f-top nav { margin-left: 0; } }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="./" aria-label="X Bench home"><img src="assets/wordmark-dark.svg" alt="X Bench"></a>
+    <a href="./">Back to X Bench</a>
+  </header>
+  <main>
+    <h1>Imprint</h1>
+    <h2>Information according to § 18 (1) MStV</h2>
+    <p>Thimo Eder<br>Frankenbergstraße 5<br>91477 Markt Bibart<br>Germany</p>
+
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:apps@thimo-eder.de">apps@thimo-eder.de</a></p>
+  </main>
+  <footer>
+    <div class="f-in">
+      <div class="f-top">
+        <img src="assets/wordmark-dark.svg" alt="X Bench">
+        <span>© 2026 Thimo Eder · MIT License</span>
+        <nav aria-label="Footer"><a href="https://github.com/ThimoEder/x-bench" target="_blank" rel="noopener">GitHub</a><a href="https://xbench.dev/download">Download</a><a href="impressum.html">Imprint</a><a href="privacy.html">Privacy</a><a href="#top">Back to top</a></nav>
+      </div>
+      <p class="f-note">X Bench is an independent project, not affiliated with or endorsed by Anthropic, OpenAI, xAI or Atlassian. Claude and Claude Code belong to Anthropic, ChatGPT and Codex to OpenAI, Grok and Grok Build to xAI, and Trello and Jira to Atlassian. The Claude, OpenAI and Grok marks come from Lobe Icons (MIT, © 2023 LobeHub).</p>
+    </div>
+  </footer>
+</body>
+</html>
