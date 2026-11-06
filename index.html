@@ -49,7 +49,7 @@
   --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, monospace;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; overscroll-behavior-y: none; }
+html { scroll-behavior: smooth; }
 /* Glows and off-stage panes may bleed sideways; clip keeps sticky elements working. */
 main { overflow-x: clip; }
 body {
@@ -1335,10 +1335,12 @@ let pointer = null;
 const light = () => {
   if (!pointer) return;
   const r = hero.getBoundingClientRect();
+  const inside = pointer.y >= r.top && pointer.y < r.bottom;
+  // The light shows only while the pointer is over the hero, so the tour has none.
+  hero.style.setProperty("--glow", inside ? 1 : 0);
+  if (!inside) return;
   hero.style.setProperty("--x", pointer.x - r.left + "px");
   hero.style.setProperty("--y", pointer.y - r.top + "px");
-  // The light shows only while the pointer is over the hero, so the tour has none.
-  hero.style.setProperty("--glow", pointer.y >= r.top && pointer.y < r.bottom ? 1 : 0);
 };
 document.documentElement.addEventListener("pointerleave", () => hero.style.setProperty("--glow", 0));
 addEventListener("pointermove", (e) => { pointer = { x: e.clientX, y: e.clientY }; light(); }, { passive: true });
