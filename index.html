@@ -360,8 +360,6 @@ h1 { margin: 0 auto; font-size: clamp(44px, 7.6vw, 96px); line-height: 1.02; fon
 .board { position: absolute; inset: 0; display: flex; flex-direction: column; transition: filter .4s, opacity .4s, right .65s var(--spring-soft); }
 .b-head { position: relative; display: flex; align-items: center; justify-content: center; height: 40px; flex: none; font-size: 14px; }
 .b-head span { color: var(--muted); font-weight: 400; }
-.b-head small { position: absolute; right: 8px; display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 12.5px; }
-.b-head small .i { width: 13px; height: 13px; }
 .b-tools { display: flex; align-items: center; gap: 6px; padding: 2px 8px 12px; color: var(--muted); font-size: 12.5px; }
 .b-search { display: flex; align-items: center; gap: 8px; width: 200px; padding: 6px 10px; border-radius: 10px; background: var(--card); box-shadow: inset 0 0 0 1px var(--line); color: var(--faint); }
 .b-search .i { width: 13px; height: 13px; }
@@ -407,7 +405,6 @@ h1 { margin: 0 auto; font-size: clamp(44px, 7.6vw, 96px); line-height: 1.02; fon
 .tp-head { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 12.5px; }
 .tp-head > b { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
 .tp-head .end { margin-left: auto; display: flex; align-items: center; gap: 12px; }
-.tp-head .end > span { display: inline-flex; align-items: center; gap: 5px; }
 .tp-head .i { width: 14px; height: 14px; }
 .tp-x { display: grid; place-items: center; width: 24px; height: 24px; margin: -4px -4px -4px 0; border-radius: 8px; color: var(--muted); }
 .tp-x:hover { background: var(--hover); color: var(--text); }
@@ -829,7 +826,7 @@ footer { border-top: 1px solid var(--line); padding: 36px 24px 48px; color: var(
   .hero { padding-top: 132px; }
   .hero h1 br { display: none; }
   .win { height: 530px; border-radius: 18px; font-size: 12.5px; }
-  .cmp-row :is(.o-eff, .o-appr, .o-next), .shelf, .chipbtn, .pg-grid div:last-child, .b-head small, .tp-head .end > span { display: none; }
+  .cmp-row :is(.o-eff, .o-appr, .o-next), .shelf, .chipbtn, .pg-grid div:last-child { display: none; }
   .tp-body { grid-template-columns: 1fr; gap: 6px; }
   .tp-side .pills { margin-bottom: 8px; }
   .pg-grid { grid-template-columns: repeat(2, 1fr); }
@@ -847,11 +844,8 @@ footer { border-top: 1px solid var(--line); padding: 36px 24px 48px; color: var(
 
 /* Boards */
 #boards .bo-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
-#boards .bo-pills :is(span, a) { display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px 7px 11px; border-radius: 999px; background: var(--pane); box-shadow: inset 0 0 0 1px var(--line); font-size: 14px; }
+#boards .bo-pills span { display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px 7px 11px; border-radius: 999px; background: var(--pane); box-shadow: inset 0 0 0 1px var(--line); font-size: 14px; }
 #boards .bo-pills .i { width: 15px; height: 15px; color: var(--muted); }
-#boards .bo-pills em { color: var(--faint); font-size: 12.5px; font-style: normal; }
-#boards .bo-pills a { color: var(--text); text-decoration: none; transition: box-shadow .2s, background-color .2s; }
-#boards .bo-pills a:hover, #boards .bo-pills a:focus-visible { background: var(--card); box-shadow: inset 0 0 0 1px var(--line-strong); }
 #boards .bo-win { position: relative; height: 440px; margin-top: 44px; border-radius: 26px; background: var(--bg); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.09), 0 0 0 1px #000, 0 50px 100px -40px rgba(0, 0, 0, 0.9); overflow: hidden; font-size: 13.5px; line-height: 1.5; text-align: left; }
 #boards .bo-board { position: absolute; inset: 8px; }
 @media (max-width: 860px) {
@@ -1191,7 +1185,7 @@ footer { border-top: 1px solid var(--line); padding: 36px 24px 48px; color: var(
     </div>
 
     <div class="captions">
-      <div class="cap on" data-cap="board"><h2>Start a chat from a ticket</h2><p>New chat writes the prompt from the ticket. Tick worktree, start, and the agent moves the ticket to Active. Each folder picks its board: SAK, Trello or Jira.</p></div>
+      <div class="cap on" data-cap="board"><h2>Start a chat from a ticket</h2><p>New chat writes the prompt from the ticket. Tick worktree, start, and the agent moves the ticket to Active. Each folder picks its board: Local, Trello or Jira.</p></div>
       <div class="cap" data-cap="chat"><h2>Linked both ways</h2><p>The chat shows its ticket, and the ticket lists its chats. The agent asks before it runs a command, and a ready pull request moves the ticket to Review.</p></div>
       <div class="cap" data-cap="suggest"><h2>It suggests what comes next</h2><p>Follow-up work the agent spots waits above the composer. Start it in a new worktree, file it as a ticket, or swipe it away.</p></div>
       <div class="cap" data-cap="review"><h2>Review beside the chat</h2><p>The uncommitted changes or the whole branch, file by file.</p></div>
@@ -1206,7 +1200,7 @@ footer { border-top: 1px solid var(--line); padding: 36px 24px 48px; color: var(
       <p class="eyebrow reveal">Boards</p>
       <h2 class="big reveal" style="--i:1">Your board, wherever it lives.</h2>
       <p class="sub reveal" style="--i:2">Connect a board to a project folder, and the agent works with it.</p>
-      <div class="bo-pills reveal" style="--i:3"><a href="https://git.swipelab.com/sx/sak" target="_blank" rel="noopener" title="SAK: a task tracker for agents and the people working with them"><svg class="i"><use href="#i-board"/></svg>SAK <em>(local)</em></a><a href="https://trello.com" target="_blank" rel="noopener"><svg class="i"><use href="#i-board"/></svg>Trello</a><a href="https://www.atlassian.com/software/jira" target="_blank" rel="noopener"><svg class="i"><use href="#i-board"/></svg>Jira</a></div>
+      <div class="bo-pills reveal" style="--i:3"><span><svg class="i"><use href="#i-board"/></svg>Local</span><span><svg class="i"><use href="#i-board"/></svg>Trello</span><span><svg class="i"><use href="#i-board"/></svg>Jira</span></div>
       <div class="bo-win reveal" style="--i:4"><div class="bo-board" inert aria-hidden="true"></div></div>
     </div>
   </section>
@@ -1466,7 +1460,7 @@ const TICKETS = [
 const cardInner = (t) => `<span class="c-top"><span>${t.parent ? `#${t.parent}${icon("i-elbow", "i elb")}` : ""}#${t.id}</span><span class="c-end">${t.run ? '<i class="run-dot"></i>' : ""}${t.chats ? `<span>${icon("i-link")}${t.chats}</span>` : ""}</span></span><b>${t.title}</b>${t.labels ? `<span class="pills">${t.labels.map((l) => `<span class="pl">${l}</span>`).join("")}</span>` : ""}${t.sub ? `<span class="c-foot"><span>${icon("i-subtask")}${t.sub}</span></span>` : ""}`;
 const cardHTML = (t) => `<button type="button" class="card" data-id="${t.id}" aria-label="Open ticket ${t.id}: ${t.title}">${cardInner(t)}</button>`;
 function renderBoard(root, list) {
-  root.innerHTML = `<div class="b-head"><b>Board <span>· lighthouse</span></b><small>${icon("i-ext")}Open in SAK</small></div>
+  root.innerHTML = `<div class="b-head"><b>Board <span>· lighthouse</span></b></div>
     <div class="b-tools"><span class="b-search">${icon("i-search")}Search</span><span class="chipbtn">Filter</span><span class="b-total"><b>${list.length}</b> tickets</span></div>
     <div class="cols">${COLS.map((c) => `<div class="col" data-col="${c}" style="--c:${COLOR[c]}"><div class="col-h"><i></i>${NAME[c]} <span class="n">${list.filter((t) => t.col === c).length}</span>${icon("i-plus")}</div><div class="cards">${list.filter((t) => t.col === c).map(cardHTML).join("")}</div><div class="col-f">${icon("i-plus")}Add ticket</div></div>`).join("")}</div>`;
 }
@@ -1503,7 +1497,7 @@ function resetBoardTab() {
 }
 function paneHTML(t) {
   const chats = t.chats ? [`${t.run ? '<i class="spin"></i>' : icon("i-chat")}<span>${t.chatTitle || t.title}</span>`] : [];
-  return `<div class="tp-head"><b>#${t.id}</b><span class="end"><span>${icon("i-ext")}Open in SAK</span>${icon("i-expand")}${icon("i-more")}<button type="button" class="tp-x" aria-label="Close the ticket">${icon("i-x")}</button></span></div>
+  return `<div class="tp-head"><b>#${t.id}</b><span class="end">${icon("i-expand")}${icon("i-more")}<button type="button" class="tp-x" aria-label="Close the ticket">${icon("i-x")}</button></span></div>
     <h4 class="tp-title">${t.title}</h4>
     <span class="tstatus" style="--sc:${COLOR[t.col]}"><i></i><span>${NAME[t.col]}</span>${icon("i-chev")}</span>
     <div class="tp-body">
@@ -2477,7 +2471,6 @@ const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
   const board = document.querySelector("#bb").cloneNode(true);
   board.removeAttribute("id");
   board.querySelectorAll("[id]").forEach((el) => el.removeAttribute("id"));
-  board.querySelector(".b-head small")?.remove();
   document.querySelector("#boards .bo-board").append(board);
 })();
 </script>
